@@ -1,0 +1,12 @@
+name = "portfolio"
+# Set your Cloudflare Account ID if you want to publish to a zone.
+# account_id = "your-account-id-here"
+compatibility_date = "2026-08-12"
+workers_dev = true
+
+[build]
+command = "npm run build"
+
+[site]
+bucket = "./dist"
+entry-point = "workers-site"
