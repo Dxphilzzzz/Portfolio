@@ -1,0 +1,84 @@
+---
+import '../styles/global.css';
+
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Developer portfolio.' } = Astro.props;
+const path = Astro.url.pathname;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/profile.jpg" />
+  <meta name="description" content={description} />
+  <title>{title}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=Inter+Tight:wght@600;700;800;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="site-frame">
+    <aside class="side-nav" aria-label="Site navigation">
+      <a class="identity" href="/">
+        <span class="avatar-mark" aria-hidden="true">
+          <img src="/profile.jpg" alt="Dale Philip Banzon" />
+        </span>
+        <span>
+          <strong>Dale Philip Banzon</strong>
+          <small>IT Student</small>
+        </span>
+      </a>
+
+      <div class="nav-columns">
+        <nav class="nav-block">
+          <p>Main</p>
+          <a class={path === '/' ? 'active' : ''} href="/">Work</a>
+          <a class={path === '/info' ? 'active' : ''} href="/info">Info</a>
+        </nav>
+
+        <nav class="nav-block">
+          <p>Contact</p>
+          <a href="https://www.facebook.com/dalephilip.banzon" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.instagram.com/lazy.phil/" target="_blank" rel="noopener">Instagram</a>
+        </nav>
+      </div>
+    </aside>
+
+    <main class="content">
+      <slot />
+    </main>
+  </div>
+
+  <footer class="footer-nav">
+    <a class="identity" href="/">
+      <span class="avatar-mark" aria-hidden="true">
+        <img src="/profile.jpg" alt="Dale Philip Banzon" />
+      </span>
+      <span class="name">
+          <strong>Dale Philip Banzon</strong>
+          <small>IT Student</small>
+        </span>
+    </a>
+    <div class="nav-columns">
+      <nav class="nav-block">
+        <p>Main</p>
+        <a href="/">Work</a>
+        <a href="/info">Info</a>
+      </nav>
+      <nav class="nav-block">
+        <p>Contact Number</p>
+        <a href="#" target="_blank" rel="noopener">09948065933</a>
+      </nav>
+    </div>
+    <div class="footer-copy">
+      <span>&copy; 2026 Dale Philip Banzon. All Rights Reserved.</span>
+      <span>Made with Astro, coffee, and too many small tweaks.</span>
+    </div>
+  </footer>
+</body>
+</html>

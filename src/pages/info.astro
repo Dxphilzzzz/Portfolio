@@ -1,0 +1,162 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const story = [
+  {
+    title: 'My background in development.',
+    body:
+      'I started by building small web projects and became hooked on the moment a design becomes something usable in the browser.',
+  },
+  {
+    title: 'This thing called software?',
+    body:
+      'I like that development rewards clarity. The work moves from interface decisions to data, deployment, performance, and maintainability.',
+  },
+  {
+    title: 'Making it all happen.',
+    body:
+      'I focus on simple systems, clean handoffs, responsive details, and choosing the boring tool when it keeps the product stable.',
+  },
+  {
+    title: 'In my spare time,',
+    body:
+      "I'm usually tuning side projects, learning from polished products, playing basketball, or planning the next thing to ship.",
+  },
+];
+
+const aboutGallery = [
+  { src: '/about2.jpg', alt: 'Phivolcs capstone visit', caption: 'Phivolcs capstone visit — gathering seismic data and field insights to shape a stronger project outcome.' },
+  { src: '/about4.jpg', alt: 'Learning Laravel', caption: 'Learning Laravel — building clean, maintainable web apps with elegant routing and database workflows.' },
+  { src: '/about5.jpg', alt: 'First Python activity', caption: 'First Python activity — preprocessing data to turn raw inputs into clean, usable datasets.' },
+  { src: '/about6.jpg', alt: 'Learning with classmates', caption: 'Learning with classmates — sharing ideas, solving problems, and growing together through hands-on projects.' },
+];
+
+const aboutHobbies = [
+  {
+    src: '/about3.jpg',
+    alt: 'Study',
+    title: 'Study',
+    description: '<3',
+  },
+  {
+    src: '/about3.1.jpg',
+    alt: 'Study',
+    title: 'Study',
+    description: '<3',
+  },
+  {
+    src: '/about3.2.jpg',
+    alt: 'Study',
+    title: 'Study',
+    description: '<3',
+  },
+  {
+    src: '/about3.3.jpg',
+    alt: 'Study',
+    title: 'Study',
+    description: '<3',
+  },
+  {
+    src: '/about3.4.jpg',
+    alt: 'Study',
+    title: 'Study',
+    description: '<3',
+  },
+];
+
+const experience = [
+  {
+    company: 'Independent',
+    role: 'IT Student',
+    period: "2023 - Present",
+    blurb:
+      'Building practical web projects, deployment workflows, and product interfaces for small ideas.',
+  },
+  {
+    company: 'Student Projects',
+    role: 'Developer',
+    period: "2024 - 2025",
+    blurb:
+      'Designed and shipped browser-based tools while learning how interface quality shapes real user workflows.',
+  },
+  {
+    company: 'TourEase Mati',
+    role: 'Full-Stack Developer',
+    period: "2026",
+    blurb: 'Built and deployed a tourism website for destinations, activities, and visitor information.',
+  },
+    {
+    company: 'Remotasks',
+    role: '3d Lidar Tasker and Reviewer',
+    period: "2019-2020",
+    blurb: 'Worked as a tasker and reviewer on 3D lidar datasets for self-driving car projects.',
+  },
+];
+---
+
+<Layout
+  title="Dale Philip Banzon - Info"
+  description="About Dale Philip Banzon, IT student."
+>
+  <section class="info-top">
+    <div class="mobile-identity">
+      <span class="avatar-mark">DP</span>
+      <strong>Dale Philip Banzon</strong>
+      <small>IT Student</small>
+    </div>
+
+    <div class="portrait-large" aria-hidden="true">
+      <img src="/about1.jpg" alt="Profile accent 1" class="portrait-large__image" />
+    </div>
+
+    <div class="about-heading">
+      <p class="section-label">About me</p>
+      <h1>I build adaptive web tools that flex with changing tech needs.</h1>
+      <p class="intro-text">I am an IT student who loves turning clean design into practical web experiences. I enjoy building reliable interfaces, learning new tools, and shipping things that help people move faster.</p>
+    </div>
+  </section>
+
+  <section class="about-gallery">
+    <p class="section-label">About gallery</p>
+    <div class="hobby-grid">
+      {aboutGallery.map((item) => (
+        <article class="hobby-card">
+          <img src={item.src} alt={item.alt} />
+          <div>
+            <p>{item.caption}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+    <section class="experience-layout">
+    <p class="section-label">Experience</p>
+    <div class="experience-table">
+      {experience.map((item) => (
+        <article>
+          <div>
+            <h2>{item.company}</h2>
+            <p>{item.role}</p>
+          </div>
+          <span>{item.period}</span>
+          <p>{item.blurb}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+  
+  <section class="about-hobbies">
+    <p class="section-label">About hobbies</p>
+    <div class="gallery-grid">
+      {aboutHobbies.map((item) => (
+        <article class="gallery-card">
+          <img src={item.src} alt={item.alt} />
+          <p><strong>{item.title}</strong>: {item.description}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+
+</Layout>
